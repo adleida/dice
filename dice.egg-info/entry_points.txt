@@ -1,0 +1,4 @@
+
+                [console_scripts]
+                dice=dice.dice:main
+            
