@@ -1,0 +1,23 @@
+{
+  "name": "bid_response",
+  "type": "object",
+  "properties":{
+    "nurl": {
+      "type": "string",
+      "required": true
+    },
+    "is_test": {
+      "type": "integer",
+      "required": true,
+      "maximum": 1,
+      "minimum": 1
+    },
+    "adm": {
+      "type": "array",
+      "required": true,
+      "items": {
+        "type": "bid_unit"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # dice Config
 bind: 127.0.0.1
-debug: True
+debug: False
 resource: http://192.168.1.118:8008/v1/adm/ 
 
 logging:
@@ -17,12 +17,12 @@ logging:
       class: logging.handlers.RotatingFileHandler
       formatter: default
       level: DEBUG
-      filename: dice.log
+      filename: dice.log 
       maxBytes: 1000000
       backupCount: 3
   loggers:
     werkzeug:
-      level: DEBUG
+      level: ERROR
   root:
       handlers: [console, file]
       level: DEBUG

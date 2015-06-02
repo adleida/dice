@@ -1,0 +1,30 @@
+{
+  "name": "bid_unit",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "number",
+      "required": true,
+      "maximum": 10.0
+    },
+    "click_through_url": {
+      "type": "array",
+      "required": true,
+      "items": {
+        "type": "string",
+        "pattern": "[a-z]"
+      }
+    },
+    "tracking_url": {
+      "type": "array",
+      "required": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

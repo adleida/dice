@@ -1,7 +1,8 @@
 import json
 import os
 
-class SchemasStore:
+
+class SchemasStore(object):
 
     def __init__(self):
         self.schemas = {}
@@ -29,10 +30,7 @@ class SchemasStore:
     def load_folder(self, folder):
         """Loads schemas from a folder"""
         for name in os.listdir(folder):
-            path = os.path.join(folder,name)
+            path = os.path.join(folder, name)
             if os.path.isfile(path):
-                schema = open(path).read().replace("\t"," "*8)
+                schema = open(path).read().replace("\t", " " * 8)
                 self.add_schema(schema)
-
-                
-                

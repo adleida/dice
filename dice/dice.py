@@ -5,14 +5,26 @@
 # mail: tate_fan@163.com
 # Created Time: 2015年06月01日 星期一 15时30分46秒
 # ======================================================================
-from .flask_app import WebApp
-from .utils import get_res_path
 import dice
+import logging
+import logging.config
+from .flask_app import WebApp, args, cfg
+from .utils import get_res_path
+from .schemasstore import SchemasStore
+from .datagenerator import DataGenerator
+
+logger = logging.getLogger(__name__)
 
 
 def main():
+    debug = cfg.get("debug", False)
     webapp = WebApp()
-    webapp.run(debug=True)
+    webapp.run(debug=debug)
+
+    # setting for logger
+    log = cfg.get('logging', {})
+    log.setdefault('version', 1)
+    logging.config.dictConfig(log)
 
 
 if __name__ == '__main__':
