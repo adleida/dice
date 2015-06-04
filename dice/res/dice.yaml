@@ -1,23 +1,23 @@
 # dice Config
 bind: 127.0.0.1
 debug: False
-resource: http://192.168.1.118:8008/v1/adm/ 
+resource: http://dsp_res:8008/v1/adm/ 
 
 logging:
   formatters:
     default:
-      format: '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+      format: '%(levelname)s:%(name)s-[%(asctime)s:%(msecs)d]:%(message)s'
       datefmt: '%FT%T'
   handlers:
     console:
       class: logging.StreamHandler
       formatter: default
-      level: DEBUG
+      level: INFO
     file:
       class: logging.handlers.RotatingFileHandler
       formatter: default
       level: DEBUG
-      filename: dice.log 
+      filename: /tmp/dice.log 
       maxBytes: 1000000
       backupCount: 3
   loggers:

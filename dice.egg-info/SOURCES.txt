@@ -1,9 +1,12 @@
 MANIFEST.in
 setup.py
 dice/__init__.py
+dice/datagenerator.py
 dice/dice.py
 dice/flask_api.py
 dice/flask_app.py
+dice/schemasstore.py
+dice/utils.py
 dice.egg-info/PKG-INFO
 dice.egg-info/SOURCES.txt
 dice.egg-info/dependency_links.txt
@@ -13,3 +16,5 @@ dice.egg-info/requires.txt
 dice.egg-info/top_level.txt
 dice/ext/__init__.py
 dice/res/dice.yaml
+dice/res/response.json
+dice/res/test.json

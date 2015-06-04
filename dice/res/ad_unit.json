@@ -16,7 +16,7 @@
       "required": true,
       "items": {
         "type": "string",
-        "pattern": "[a-z]"
+        "pattern": "[a-z]{1}"
       }
     },
     "tracking_url": {

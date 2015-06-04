@@ -43,6 +43,7 @@ class Bid(Resource):
             for ids, item in zip(sample, tmp['adm']):
                 item['id'] = ids
             tmp['nurl'] = app.make_rul(did)
+            logging.info("Generate data: %s" % tmp)
             return tmp
         return app.dg.random_value('bid_response')
 
@@ -50,5 +51,9 @@ class Bid(Resource):
 class Notice(Resource):
 
     def post(self, did):
-        logger.info("bid notice: %s", request.json)
-        return {"message": time.time()}
+        logging.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        logging.info("bid_notice: %s&%s", *(did, request.json))
+        res = {"timestamp": time.time(), "message": "{did} get notice".format(did=did)}
+        logging.info("res_notice: %s&%s", *(did, res))
+        logging.info("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+        return res

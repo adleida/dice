@@ -87,6 +87,7 @@ class DataGenerator(object):
     def random_string(self, schema=dict()):
         pattern = schema.get("pattern", None)
         if "pattern" in schema:
+            print("dfasfkdsafkds;ajkfdsafjkdsajkf;sda;fjksa")
             return rstr.xeger(schema["pattern"])
 
         min_length = schema.get("minLength", self.string_range[0])

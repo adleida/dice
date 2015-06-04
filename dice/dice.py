@@ -17,14 +17,15 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    debug = cfg.get("debug", False)
-    webapp = WebApp()
-    webapp.run(debug=debug)
-
     # setting for logger
     log = cfg.get('logging', {})
     log.setdefault('version', 1)
     logging.config.dictConfig(log)
+
+    debug = cfg.get("debug", False)
+    host = cfg.get("bind", '127.0.0.1')
+    webapp = WebApp()
+    webapp.run(host=host, debug=debug)
 
 
 if __name__ == '__main__':
