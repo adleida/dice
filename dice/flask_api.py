@@ -33,6 +33,9 @@ class Bid(Resource):
             bid_unit = dd['bid_unit'][1]
             bid_response = dd['bid_response'][1]
 
+            if count > len(did_id):
+                count = len(did_id)
+
             bid_unit['properties']['price']['minimum'] = floor
             bid_response['properties']['adm']['minItems'] = 1
             bid_response['properties']['adm']['maxItems'] = count
@@ -43,7 +46,11 @@ class Bid(Resource):
             for ids, item in zip(sample, tmp['adm']):
                 item['id'] = ids
             tmp['nurl'] = app.make_rul(did)
+            tmp['id'] = request.json['id']
+            tmp['did'] = did
+            logging.info("===============================================")
             logging.info("Generate data: %s" % tmp)
+            logging.info("===============================================")
             return tmp
         return app.dg.random_value('bid_response')
 

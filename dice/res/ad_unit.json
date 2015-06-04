@@ -9,22 +9,7 @@
     "price": {
       "type": "number",
       "required": true,
-      "maximum": 10.0
-    },
-    "click_through_url": {
-      "type": "array",
-      "required": true,
-      "items": {
-        "type": "string",
-        "pattern": "[a-z]{1}"
-      }
-    },
-    "tracking_url": {
-      "type": "array",
-      "required": true,
-      "items": {
-        "type": "string"
-      }
+      "maximum": 5.0
     }
   }
 }

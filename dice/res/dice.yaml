@@ -22,7 +22,7 @@ logging:
       backupCount: 3
   loggers:
     werkzeug:
-      level: ERROR
+      level: DEBUG
   root:
       handlers: [console, file]
       level: DEBUG

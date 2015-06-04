@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 def main():
+
     # setting for logger
     log = cfg.get('logging', {})
     log.setdefault('version', 1)
