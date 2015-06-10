@@ -119,20 +119,20 @@ Server: Werkzeug/0.10.4 Python/3.4.2
     ```
 
 **3. 向dice 发送bid notice**
-    ```
-    url: localhost:6001/v1/notice/<did:string>
-    method: POST
-    ```
+  ```
+  url: localhost:6001/v1/notice/<did:string>
+  method: POST
+  ```
 
-    **ex:**
-    ```bash
-    $ http POST http://localhost:6001/v1/notice/556e8773c44b1a7dfaee5ec3
-    ```
+  **ex:**
+  ```bash
+  $ http POST http://localhost:6001/v1/notice/556e8773c44b1a7dfaee5ec3
+  ```
 
-    **response:**
-    ```
-    {
-        "message": "556e8773c44b1a7dfaee5ec3 get notice",
-        "timestamp": 1433930598.8850908
-    }
-    ```
+  **response:**
+  ```
+  {
+      "message": "556e8773c44b1a7dfaee5ec3 get notice",
+      "timestamp": 1433930598.8850908
+  }
+  ```
