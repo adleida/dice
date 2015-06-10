@@ -7,7 +7,7 @@
 # ======================================================================
 import logging
 from flask import Flask
-from . flask_api import Bid, Notice
+from . flask_api import Bid, Notice, Root
 from flask_restful import Api
 from .utils import get_res_path, init_args,\
     load_resource, init_resource
@@ -36,6 +36,7 @@ class WebApp(Flask):
 
     def init_rule(self):
         api = Api(self)
+        api.add_resource(Root, '/v1/')
         api.add_resource(Bid, '/v1/bid/<string:did>')
         api.add_resource(Notice, '/v1/notice/<string:did>')
 

@@ -16,6 +16,8 @@ from flask_restful import Resource, Api
 from copy import deepcopy
 import logging
 import json
+import dice
+
 logger = logging.getLogger(__name__)
 
 
@@ -26,6 +28,8 @@ class Bid(Resource):
             logging.info(request.data)
             start = time.clock()
             did_id = app.did_id(did)
+            if not did_id:
+                abort(404)
             dd = deepcopy(app.ss.schemas)
             app.dg.schemas_store.schemas = dd
             adunit = request.json.get('adunit', {})
@@ -48,7 +52,7 @@ class Bid(Resource):
             for ids, item in zip(sample, tmp['adm']):
                 item['id'] = ids
             tmp['nurl'] = app.make_rul(did)
-            tmp['id'] = request.json['id']
+            tmp['id'] = request.json.get("id", "")
             tmp['did'] = did
 
             for item in tmp['adm']:
@@ -64,8 +68,15 @@ class Bid(Resource):
             logging.info("Escaped time: %s" % (end - start))
             return tmp
         abort(403)
-        # return {"message": "bad request"}
-        # return app.dg.random_value('bid_response')
+
+
+class Root(Resource):
+    def get(self):
+        return {
+            "Message": "WELCOME TO AD DICE",
+            "time stamp": time.time(),
+            "version": dice.__version__
+        }
 
 
 class Notice(Resource):
