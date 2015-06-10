@@ -52,6 +52,7 @@ method: POST
 ```
 
 1. 若POST data 为空，dice 返回403：
+
 **ex:**
 ```bash
 $ http POST http://localhost:6001/v1/bid/123 
@@ -63,7 +64,8 @@ $ http POST http://localhost:6001/v1/bid/123
     "status": 403
 }
 ```
-2. url中 的did在adexchange 未注册，dice返回404,
+2. url中 的did在adexchange 未注册，dice返回404
+
 **ex:**
 ```bash
 $ http POST http://localhost:6001/v1/bid/123 < request.json
