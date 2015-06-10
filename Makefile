@@ -1,3 +1,5 @@
+PKG = $(shell python setup.py --fullname).tar.gz
+
 develop:
 	python setup.py develop
 
@@ -11,5 +13,5 @@ build:
 	python setup.py sdist
 
 upload: build
-	scp ./dist/dice-0.0.2.tar.gz 114:
-	scp ./dist/dice-0.0.2.tar.gz ali:
+	scp ./dist/dice-0.0.3.tar.gz 114:
+	scp ./dist/dice-0.0.3.tar.gz ali:

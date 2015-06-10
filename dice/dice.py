@@ -26,7 +26,7 @@ def main():
     debug = cfg.get("debug", False)
     host = cfg.get("bind", '127.0.0.1')
     webapp = WebApp()
-    webapp.run(host=host, debug=debug)
+    webapp.run(host=host, debug=debug, threaded=True)
 
 
 if __name__ == '__main__':

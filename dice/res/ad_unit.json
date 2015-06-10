@@ -10,6 +10,25 @@
       "type": "number",
       "required": true,
       "maximum": 5.0
+    },
+    "tracking_url": {
+      "type": "array",
+      "required": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2
+      },
+      "maxItems": 2,
+      "minItems": 1
+    },
+    "click_through_url": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 3,
+      "minItems": 1
     }
   }
 }

@@ -9,13 +9,13 @@ import random
 import time
 import argparse
 import requests
-from . utils import load_resource, init_args, init_resource
-from flask import Flask, request, jsonify,\
+from . utils import load_resource, init_args, init_resource, make_fake_url
+from flask import Flask, request, jsonify, abort,\
     current_app as app
 from flask_restful import Resource, Api
 from copy import deepcopy
 import logging
-
+import json
 logger = logging.getLogger(__name__)
 
 
@@ -23,6 +23,8 @@ class Bid(Resource):
 
     def post(self, did):
         if request.json:
+            logging.info(request.data)
+            start = time.clock()
             did_id = app.did_id(did)
             dd = deepcopy(app.ss.schemas)
             app.dg.schemas_store.schemas = dd
@@ -48,11 +50,22 @@ class Bid(Resource):
             tmp['nurl'] = app.make_rul(did)
             tmp['id'] = request.json['id']
             tmp['did'] = did
+
+            for item in tmp['adm']:
+                if 'tracking_url' in item:
+                    item['tracking_url'] = make_fake_url(len(item['tracking_url']))
+                if 'click_through_url' in item:
+                    item['click_through_url'] = make_fake_url(len(item['click_through_url']))
+
             logging.info("===============================================")
             logging.info("Generate data: %s" % tmp)
             logging.info("===============================================")
+            end = time.clock()
+            logging.info("Escaped time: %s" % (end - start))
             return tmp
-        return app.dg.random_value('bid_response')
+        abort(403)
+        # return {"message": "bad request"}
+        # return app.dg.random_value('bid_response')
 
 
 class Notice(Resource):

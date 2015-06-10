@@ -16,6 +16,7 @@ import logging
 import argparse
 import dice
 import os.path as _path
+from faker import Factory
 
 
 def json_dump(data):
@@ -65,3 +66,9 @@ def get_res_path(package, folder):
     if isinstance(package, str):
         package = __import__(package)
     return _path.join(_path.dirname(package.__file__), folder)
+
+
+def make_fake_url(count):
+    fake = Factory.create()
+    count = count or 1
+    return [fake.url() for _ in range(count)]

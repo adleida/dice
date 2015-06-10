@@ -7,6 +7,7 @@ dice/flask_api.py
 dice/flask_app.py
 dice/schemasstore.py
 dice/utils.py
+dice/uwsgi.py
 dice.egg-info/PKG-INFO
 dice.egg-info/SOURCES.txt
 dice.egg-info/dependency_links.txt
@@ -15,6 +16,6 @@ dice.egg-info/not-zip-safe
 dice.egg-info/requires.txt
 dice.egg-info/top_level.txt
 dice/ext/__init__.py
+dice/res/ad_unit.json
 dice/res/dice.yaml
 dice/res/response.json
-dice/res/test.json

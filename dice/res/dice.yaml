@@ -1,5 +1,5 @@
 # dice Config
-bind: 127.0.0.1
+bind: 0.0.0.0
 debug: False
 resource: http://dsp_res:8008/v1/adm/ 
 
@@ -12,7 +12,7 @@ logging:
     console:
       class: logging.StreamHandler
       formatter: default
-      level: INFO
+      level: DEBUG
     file:
       class: logging.handlers.RotatingFileHandler
       formatter: default
